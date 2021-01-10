@@ -52,11 +52,11 @@
   <script>
     var map = L.map('map'); //Initialize the map
 
-    var formId = '13E8CN8agdEA8M1m5gtP5zmAuKYGxJfQBU-hM2zkoRok';
-    var formLat = '284340177';
-    var formLng = '277741954';
-    var formText = '333827706';
-    var gsheet = '1v8xW8RbyB4qSlHq2IkTOGIEy0Lo4dVtST4FIyqty9FA';
+    var formId = '1FAIpQLSc2DAI04PMD21YG8kQv3DBQQOgMg6YZczPDwk6FCpgFPR49vw';
+    var formLat = '1139993701';
+    var formLng = '1753243151';
+    var formText = '321860203';
+    var gsheet = '15zecq9a67GIEanDbQfztyq0Gd1nqwZ0_APuOxMzzScM';
 
     //Add a basemap
     var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -106,7 +106,8 @@
             //console.log(descrip);
             if (descrip) {
               //console.log(descrip);
-              $('#formdiv').html('<iframe src="https://docs.google.com/forms/d/' + formId + '/formResponse?entry.' + formLat + '=' + lat + '&entry.' + formLng + '=' + lng + '&entry.'+ formText + '=' + descrip + '&submit=Submit" seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
+              $('#formdiv').html('<iframe src="https://docs.google.com/forms/d/e/' + formId + '/viewform?usp=pp_url&entry.' + formLat + '=' + lat + '&entry.' + formLng + '=' + lng + '&entry.'+ formText + '=' + descrip + '&submit=Submit" seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
+              //$('#formdiv').html('<iframe src="https://docs.google.com/forms/d/' + formId + '/formResponse?entry.' + formLat + '=' + lat + '&entry.' + formLng + '=' + lng + '&entry.'+ formText + '=' + descrip + '&submit=Submit" seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
             } else {
               $('#formHelp').html('<span style="color:red;">Please enter a description of your point.</span>')
             }
