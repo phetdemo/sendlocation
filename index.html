@@ -3,7 +3,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Leaflet and Google Form GPS Data Collection</title>
+  <title>Send Location and Tracking Number</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta property="og:title" content="Leaflet and Google Form GPS Data Collection" />
   <meta property="og:type" content="website" />
@@ -31,7 +31,7 @@
     .map {height:70%}
     #map {position:relative;height:500px;}
     .leaflet-popup-content {font-size: medium;}
-    .form-group{width:500px;margin-bottom:0;}
+    .form-group{width:300px;margin-bottom:0;}
     .form-control{resize:none;}
     .text-muted{font-size:smaller;}
     hr {margin: 10px 0;}
@@ -84,7 +84,7 @@
       lat = e.latlng.lat;
       lng = e.latlng.lng;
 
-      var form = '<div id="formdiv"><form role="form" id="projectform"><div class="form-group"><div class="form-group"><label for="description" class="requiredField">GPS Collection Form</label><textarea class="form-control" rows="3" id="descrip" placeholder="Text input..."></textarea></div><em class="text-muted">Click submit to add a point at this location.</em><div id="formHelp"></div><hr /><button type="submit" id="submit" class="btn btn-default btn-sm">Submit</button></form></div>';
+      var form = '<div id="formdiv"><form role="form" id="projectform"><div class="form-group"><div class="form-group"><label for="description" class="requiredField">Tracking Number</label><textarea class="form-control" rows="3" id="descrip" placeholder="Text input..."></textarea><br><label for="Tem">Temperature</label><br><input type="text" id="Temname" name="Temname"></div><em class="text-muted">Click submit to add Tracking Number.</em><div id="formHelp"></div><hr /><button type="submit" id="submit" class="btn btn-default btn-sm">Submit</button></form></div>';
 
       if (e.accuracy) {
         var radius = (e.accuracy / 2) * 3.28084;
@@ -116,7 +116,7 @@
               $('#formdiv').html('<div id="formdivSend"><input type="button" onclick= "UrlSendLoc()" value="Upload Image"/></div>');
               //$('#formdiv').html('<iframe src="https://docs.google.com/forms/d/e/' + formId + '/formResponse?entry.' + formLat + '=' + lat + '&entry.' + formLng + '=' + lng + '&entry.'+ formText + '=' + descrip + '&submit=Submit" seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
             } else {
-              $('#formHelp').html('<span style="color:red;">Please enter a description of your point.</span>')
+              $('#formHelp').html('<span style="color:red;">Please enter a Tracking Number.</span>')
             }
           });
       });
