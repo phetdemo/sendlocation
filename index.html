@@ -57,7 +57,7 @@
     var formLng = '1753243151';
     var formText = '321860203';
     var gsheet = '15zecq9a67GIEanDbQfztyq0Gd1nqwZ0_APuOxMzzScM';
-
+    var des = "";
     //Add a basemap
     var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     	maxZoom: 19,
@@ -105,7 +105,11 @@
             var descrip = $('#descrip').val();
             //console.log(descrip);
             if (descrip) {
-              var des = descrip;
+              if(des == ""){
+                des = descrip;
+              }
+              
+              
               //console.log(descrip);
               //$('#formdiv').html('<iframe src="https://docs.google.com/forms/d/e/' + formId + '/viewform?usp=pp_url&entry.' + formLat + '=' + lat + '&entry.' + formLng + '=' + lng + '&entry.'+ formText + '=' + descrip + '&submit=Submit" seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
               //var UrlSend = 'https://docs.google.com/forms/d/e/' + formId +'/viewform?usp=pp_url&entry.' + formLat + '=' + lat + '&entry.' + formLng + '=' + lng + '&entry.'+ formText + '=' + descrip;
