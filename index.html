@@ -5,11 +5,6 @@
   <meta charset="utf-8">
   <title>Send Location and Tracking Number</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta property="og:title" content="Leaflet and Google Form GPS Data Collection" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://aogdp.github.io/gpsform/" />
-  <meta property="og:image" content="https://raw.githubusercontent.com/aogdp/gpsform/gh-pages/img/gpsform.png" />
-  <meta property="og:description" content="A web app that uses Google Forms and Leaflet to collect data using a web browser." />
   <!--Bootstrap for form-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <!--leaflet-->
@@ -40,14 +35,13 @@
 
 <body>
   <div class="container text-center">
-    <h3>Leaflet GPS Collection using Google Forms</h3>
+    <h3>Send Location and Tracking Number</h3>
   </div>
   <div class="map">
     <div id="map"></div>
   </div>
   <div class="container">
-    <h4>This is a simple web app that uses Leaflet and Google Forms, along with a few plugins, to collect data using just a modern web browser.</h4>
-    <h4>Check out the simple <a href="https://github.com/aogdp/gpsform/blob/gh-pages/README.md">instructions</a> to learn how to create your own collection app.</h4>
+    <h4>Send Location.</h4>
   </div>
   <script>
     var map = L.map('map'); //Initialize the map
@@ -56,8 +50,10 @@
     var formLat = '1139993701';
     var formLng = '1753243151';
     var formText = '321860203';
+    var formTem = '203098882';
     var gsheet = '15zecq9a67GIEanDbQfztyq0Gd1nqwZ0_APuOxMzzScM';
     var des = "";
+    var tem = "";
     //Add a basemap
     var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     	maxZoom: 19,
@@ -103,10 +99,12 @@
         $('#projectform').submit(function(event) {
             event.preventDefault();
             var descrip = $('#descrip').val();
+            var Temperature = $('#Temname').val();
             //console.log(descrip);
             if (descrip) {
-              if(des == ""){
+              if(des == "" && tem == ""){
                 des = descrip;
+                tem = Temperature;
               }
               
               
@@ -131,7 +129,7 @@
     }
 
     function UrlSendLoc(){
-      var UrlSend = 'https://docs.google.com/forms/d/e/' + formId +'/viewform?usp=pp_url&entry.' + formLat + '=' + lat + '&entry.' + formLng + '=' + lng + '&entry.'+ formText + '=' + des;
+      var UrlSend = 'https://docs.google.com/forms/d/e/' + formId +'/viewform?usp=pp_url&entry.' + formLat + '=' + lat + '&entry.' + formLng + '=' + lng + '&entry.'+ formText + '=' + des+'&entry.'+formTem+'='+tem;
       var Url = encodeURI(UrlSend);
       window.open(Url);
     }
