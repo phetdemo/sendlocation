@@ -105,6 +105,7 @@
             var descrip = $('#descrip').val();
             //console.log(descrip);
             if (descrip) {
+              var des = descrip;
               //console.log(descrip);
               //$('#formdiv').html('<iframe src="https://docs.google.com/forms/d/e/' + formId + '/viewform?usp=pp_url&entry.' + formLat + '=' + lat + '&entry.' + formLng + '=' + lng + '&entry.'+ formText + '=' + descrip + '&submit=Submit" seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
               //var UrlSend = 'https://docs.google.com/forms/d/e/' + formId +'/viewform?usp=pp_url&entry.' + formLat + '=' + lat + '&entry.' + formLng + '=' + lng + '&entry.'+ formText + '=' + descrip;
@@ -126,7 +127,7 @@
     }
 
     function UrlSendLoc(){
-      var UrlSend = 'https://docs.google.com/forms/d/e/' + formId +'/viewform?usp=pp_url&entry.' + formLat + '=' + lat + '&entry.' + formLng + '=' + lng + '&entry.'+ formText + '=' + descrip;
+      var UrlSend = 'https://docs.google.com/forms/d/e/' + formId +'/viewform?usp=pp_url&entry.' + formLat + '=' + lat + '&entry.' + formLng + '=' + lng + '&entry.'+ formText + '=' + des;
       var Url = encodeURI(UrlSend);
       window.open(Url);
     }
